@@ -1,10 +1,8 @@
 .btn-rotate {
-	background-position: -692px -1046px;
 	float: left;
 	height: 32px;
 	margin: 9px 12px 0 0;
 	width: 32px;
-	background-repeat: no-repeat;
 	background-image: url('./icon-rotate.png'); /** @TODO create */
 	background-color: 'transparent';
 	/*display: inline-block;*/
@@ -18,4 +16,8 @@
 	/* most of authors rotate for "landscape" by 90deg, we reverse */
 	transform: rotate(-90deg) translateX(-100%);
 	transform-origin: top left;
+}
+
+.rotate-fix-scrollbar {
+	overflow-y: hidden;
 }

@@ -26,6 +26,7 @@ function rotate() {
 	const scrollPositionY = window.scrollY;
 
 	viewer.classList.toggle('viewer-rotate');
+	document.body.classList.toggle("rotate-fix-scrollbar")
 
 	if (viewer.classList.contains("viewer-rotate")) {
 		window.scrollTo(scrollPositionY, 120)
