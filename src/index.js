@@ -28,7 +28,7 @@ function rotate() {
 	viewer.classList.toggle('viewer-rotate');
 
 	if (viewer.classList.contains("viewer-rotate")) {
-		window.scrollTo(scrollPositionY, 0)
+		window.scrollTo(scrollPositionY, 120)
 	} else {
 		window.scrollTo(0, scrollPositionX)
 	}
