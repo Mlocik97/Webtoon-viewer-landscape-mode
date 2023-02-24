@@ -35,4 +35,4 @@ function rotate() {
 	}
 }
 
-setTimeout(addButton, 1000);
+addButton();
