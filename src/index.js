@@ -27,9 +27,18 @@ function rotate() {
 	const viewer = document.querySelector('#_viewerBox');
 	const viewer_lst = document.querySelector('#_viewerBox > div');
 
-	
+	const scrollPositionX = window.scrollX;
+	const scrollPositionY = window.scrollY;
+
+	console.log(scrollPositionX, scrollPositionY);
+
 	viewer.classList.toggle('viewer-rotate');
 
+	if (viewer.classList.contains("viewer-rotate")) {
+		window.scrollTo(scrollPositionY, 0)
+	} else {
+		window.scrollTo(0, scrollPositionX)
+	}
 
 	[viewer_lst, content].forEach((el) => {
 		el.classList.toggle('viewer-reset-margin');
