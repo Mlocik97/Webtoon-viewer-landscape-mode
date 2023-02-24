@@ -1,0 +1,21 @@
+{
+	"manifest_version": 3,
+	"name": "Webtoon viewer landscape mode",
+	"version": "0.0.1",
+	"author": "Mlocik97",
+	"description": "Extension, that allows you rotate viewer, so it's easy to read landscape episodes on desktop",
+	"content_scripts": [
+		{
+			"js": [
+				"./index.js"
+			],
+			"css": [
+				"./style.css"
+			],
+			"matches": [
+				"https://webtoons.com/**/viewer*",
+				"https://*.webtoons.com/**/viewer*"
+			]
+		}
+	]
+}
