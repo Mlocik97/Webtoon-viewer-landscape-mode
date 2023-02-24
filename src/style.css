@@ -16,20 +16,6 @@
 
 .viewer-rotate {
 	/* most of authors rotate for "landscape" by 90deg, we reverse */
-	transform: rotate(-90deg);
-	/* top: 200px;
-	left: 200px; */
-	bottom: 0;
-	/*height: auto;*/
-	margin: 10px;
-	position: absolute;
-}
-
-.viewer-reset-margin {
-	margin: 0;
-	padding: 0;
-	top: 20px;
-	left: 0;
-	height: auto;
-	position: absolute;
+	transform: rotate(-90deg) translateX(-100%);
+	transform-origin: top left;
 }

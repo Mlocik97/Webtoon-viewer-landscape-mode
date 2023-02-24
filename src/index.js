@@ -23,13 +23,15 @@ function addButton() {
 function rotate() {
 	// const viewer = document.querySelector("#_viewerBox");
 	// viewer.classList.toggle("viewer-rotate");
-	const viewer_lst = document.querySelector('#_viewerBox > div > div');
-	viewer_lst.classList.toggle('viewer-rotate');
-
-	const viewer = document.querySelector('#_viewerBox');
 	const content = document.querySelector('#content');
+	const viewer = document.querySelector('#_viewerBox');
+	const viewer_lst = document.querySelector('#_viewerBox > div');
 
-	[viewer, content].forEach((el) => {
+	
+	viewer.classList.toggle('viewer-rotate');
+
+
+	[viewer_lst, content].forEach((el) => {
 		el.classList.toggle('viewer-reset-margin');
 	});
 }
