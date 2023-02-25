@@ -1,7 +1,7 @@
 {
   "name": "webtoon-landscape-mode",
   "version": "1.0.0",
-  "description": "",
+  "description": "Extension, that allows you rotate viewer, so it's easy to read landscape webtoon episodes on desktop",
   "main": "src/index.js",
   "scripts": {
     "test": "node test.js",
@@ -12,12 +12,14 @@
   "keywords": [
     "Webtoon",
     "rotate",
+    "landscape",
     "viewer"
   ],
   "author": "Mlocik97",
   "license": "MIT",
   "type": "module",
   "devDependencies": {
+    "@types/chrome": "^0.0.217",
     "eslint": "^8.34.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",

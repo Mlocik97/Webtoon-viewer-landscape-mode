@@ -5,16 +5,25 @@ import fetch from 'node-fetch';
 import * as assert from 'uvu/assert';
 import { addButton } from './src/rotate.js';
 
+/** fetch HTML from webtoon episode viewer */
 const URL =
 	'https://www.webtoons.com/en/fantasy/soleil/s3-episode-128/viewer?title_no=1823&episode_no=128';
 const html = await fetch(URL).then((r) => r.text());
 
+/** create DOM */
+
 const dom = new JSDOM(html);
+
+/** make window, document and window.scrollTo globals */
+
 installPolyfills({
 	window: dom.window,
 	document: dom.window.document,
 });
+const noop = () => {};
+Object.defineProperty(window, 'scrollTo', { value: noop, writable: true });
 
+/** inject CSS */
 const cssFile = fs.readFileSync("./src/style.css", {
 	encoding: "utf-8"
 });
@@ -23,10 +32,14 @@ const styleElement = document.createElement("style");
 styleElement.textContent = cssFile;
 document.head.appendChild(styleElement);
 
+/** execute script */
+
 addButton();
 const button = document.querySelector("#btn-rotate")
 
-test('Rotate button display', () => {
+/** tests */
+
+test('Rotate button is inserted', () => {
 	assert.is(button.tagName, "BUTTON")
 });
 
@@ -47,7 +60,16 @@ test("Rotating works", () => {
 	const rotated = viewer.classList.contains("viewer-rotate");
 	assert.is(rotated, true);
 	const transform = window.getComputedStyle(viewer).getPropertyValue("transform");
-	assert.is(transform, "rotate(-90deg)");
+	assert.is(transform, "rotate(-90deg) translateX(-100%)");
+})
+
+test("vertical scrollbar is hidden in landscape", () => {
+	const overflow = window.getComputedStyle(document.body).getPropertyValue("overflow-y");
+	assert.is(overflow, "hidden");
+})
+
+test("episodde is visible", () => {
+	// TODO
 })
 
 test.run();

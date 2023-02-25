@@ -1,7 +1,10 @@
-// import from `rotate.js`, and remove function from here.
+/** @TODO import `addButton` and `rotate` from `rotate.js` */
 
 /**
  * adds button to toolbar, when episode is opened
+ * 
+ * @example
+ * addButton();
  */
 function addButton() {
 	const toolbar = document.querySelector('#_toolBarRightArea');
@@ -17,7 +20,7 @@ function addButton() {
  * switch between landscape and standard mode in episode viewer
  *
  * @example
- * rotate();
+ * button.addEventListener('click', rotate);
  */
 function rotate() {
 	const viewer = document.querySelector('#_viewerBox');
