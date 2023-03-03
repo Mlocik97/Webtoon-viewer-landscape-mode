@@ -45,6 +45,7 @@ document.head.append(scriptElement);
 /** tests */
 
 const button = document.querySelector("#btn-rotate");
+const viewer = document.querySelector("#_viewerBox");
 
 test('Rotate button is inserted', () => {
 	assert.is(button.tagName, "BUTTON")
@@ -52,21 +53,15 @@ test('Rotate button is inserted', () => {
 
 test("Button trigger rotating", () => {
 	button.click();
-	const viewer = document.querySelector("#_viewerBox");
 	const rotated = viewer.classList.contains("viewer-rotate");
 	assert.is(rotated, true);
 	button.click();
-	const viewer2 = document.querySelector("#_viewerBox");
-	const rotated2 = viewer2.classList.contains("viewer-rotate");
+	const rotated2 = viewer.classList.contains("viewer-rotate");
 	assert.is(rotated2, false);
 })
 
 test("Rotating works", () => {
-	const button = document.querySelector("#btn-rotate");
 	button.click();
-	const viewer = document.querySelector("#_viewerBox");
-	const rotated = viewer.classList.contains("viewer-rotate");
-	assert.is(rotated, true);
 	const transform = window.getComputedStyle(viewer).getPropertyValue("transform");
 	assert.is(transform, "rotate(-90deg) translateX(-100%)");
 })
