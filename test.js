@@ -3,7 +3,6 @@ import { JSDOM } from 'jsdom';
 import fs from 'fs';
 import fetch from 'node-fetch';
 import * as assert from 'uvu/assert';
-import { addButton } from './src/rotate.js';
 
 /** fetch HTML from webtoon episode viewer */
 const URL =
@@ -12,7 +11,9 @@ const html = await fetch(URL).then((r) => r.text());
 
 /** create DOM */
 
-const dom = new JSDOM(html);
+const dom = new JSDOM(html, {
+	runScripts: "dangerously"
+});
 
 /** make window, document and window.scrollTo globals */
 
@@ -32,12 +33,18 @@ const styleElement = document.createElement("style");
 styleElement.textContent = cssFile;
 document.head.appendChild(styleElement);
 
-/** execute script */
+/** inject JS */
+const jsFile = fs.readFileSync("./src/index.js", {
+	encoding: "utf-8"
+})
 
-addButton();
-const button = document.querySelector("#btn-rotate")
+const scriptElement = document.createElement("script");
+scriptElement.textContent = jsFile;
+document.head.append(scriptElement);
 
 /** tests */
+
+const button = document.querySelector("#btn-rotate");
 
 test('Rotate button is inserted', () => {
 	assert.is(button.tagName, "BUTTON")
@@ -55,6 +62,7 @@ test("Button trigger rotating", () => {
 })
 
 test("Rotating works", () => {
+	const button = document.querySelector("#btn-rotate");
 	button.click();
 	const viewer = document.querySelector("#_viewerBox");
 	const rotated = viewer.classList.contains("viewer-rotate");

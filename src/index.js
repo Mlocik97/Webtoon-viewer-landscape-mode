@@ -1,5 +1,3 @@
-/** @TODO import `addButton` and `rotate` from `rotate.js` */
-
 /**
  * adds button to toolbar, when episode is opened
  * 
