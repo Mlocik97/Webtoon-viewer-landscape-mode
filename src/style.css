@@ -20,4 +20,10 @@
 
 .rotate-fix-scrollbar {
 	overflow-y: hidden;
+	overflow-x: scroll;
+}
+
+.viewer-rotate-hide-toTop {
+	visibility: hidden;
+	display: none !important;
 }

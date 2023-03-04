@@ -4,6 +4,7 @@
   "description": "Extension, that allows you rotate viewer, so it's easy to read landscape webtoon episodes on desktop",
   "main": "src/index.js",
   "scripts": {
+    "build": "cd src; zip -r ../output.zip *",
     "test": "node test.js",
     "lint": "rettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
     "format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. .",

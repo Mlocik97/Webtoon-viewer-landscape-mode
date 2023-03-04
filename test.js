@@ -12,6 +12,8 @@ const html = await fetch(URL).then((r) => r.text());
 /** create DOM */
 
 const dom = new JSDOM(html, {
+	url: URL,
+	referrer: "https://www.webtoons.com/",
 	runScripts: "dangerously"
 });
 
@@ -72,6 +74,14 @@ test("vertical scrollbar is hidden in landscape", () => {
 })
 
 test("episodde is visible", () => {
+	// TODO
+})
+
+test("scroll to Top is hiddem", () => {
+	// TODO
+})
+
+test("wheel in landscape scroll by x axis", () => {
 	// TODO
 })
 
