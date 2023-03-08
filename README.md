@@ -12,5 +12,4 @@ This extension add button to toolbar (that is at top of website in right corner,
 Now we can easily read landscape episodes too. See screenshot of the episode above in landscape mode.
 
 Known issues:
-- missing icon on button
 - white padding at start of episode
