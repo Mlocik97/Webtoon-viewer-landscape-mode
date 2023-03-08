@@ -12,21 +12,14 @@ const icon = chrome
  * addButton();
  */
 function addButton() {
-	const toolbar = document.querySelector('#_toolBarRightArea > ul');
-	const li = document.createElement("li");
-	li.classList.add("relative");
-	const button = document.createElement('a');
+	const toolbar = document.querySelector('#_toolBarRightArea');
+	const button = document.createElement("button");
 	button.classList.add('btn-rotate');
-	button.removeAttribute("href");
-	button.classList.add("NPI=a:addfav,g:en_en");
 	button.textContent = "rotate";
-	button.setAttribute("data-page-source", "ViewerTopRight");
 	button.id = 'btn-rotate';
 	button.style.setProperty("background-image", `url(${icon})`)
 	button.addEventListener('click', rotate);
-	console.log("works");
-	toolbar.prepend(li);
-	li.prepend(button);
+	toolbar.prepend(button);
 	return button;
 }
 

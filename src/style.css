@@ -1,9 +1,9 @@
 .btn-rotate {
 	float: left;
-	height: 31px;
-	/*margin: 9px 12px 0 0;*/
-	width: 31px;
-	background-color: 'transparent';
+	height: 32px;
+	width: 32px;
+	margin: 9px 12px 0 0 !important;
+	background-color: transparent;
 	background-size: cover;
 	background-repeat: no-repeat;
 	cursor: pointer;
