@@ -57,8 +57,6 @@ scriptElement.textContent = jsFile
 .replace('? chrome.runtime.getURL("/images/icon-rotate.png")', '')
 .replace(': browser.runtime.getURL("/images/icon-rotate.png");', '');
 
-console.log(scriptElement.textContent);
-
 document.head.append(scriptElement);
 
 /** tests */
