@@ -19,10 +19,19 @@ const dom = new JSDOM(html, {
 
 /** make window, document and window.scrollTo globals */
 
+const browserAPI = {
+	runtime: {
+		getUrl: (url) => `.${url}` // emulate relative path
+	}
+}
+
 installPolyfills({
 	window: dom.window,
 	document: dom.window.document,
+	chrome: browserAPI,
+	browser: browserAPI
 });
+
 const noop = () => {};
 Object.defineProperty(window, 'scrollTo', { value: noop, writable: true });
 
@@ -41,7 +50,15 @@ const jsFile = fs.readFileSync("./src/index.js", {
 })
 
 const scriptElement = document.createElement("script");
-scriptElement.textContent = jsFile;
+scriptElement.textContent = jsFile
+
+// replace `runtime.getURL` with url
+.replace("icon = chrome", 'icon = "./images/icon-rotate.png"')
+.replace('? chrome.runtime.getURL("/images/icon-rotate.png")', '')
+.replace(': browser.runtime.getURL("/images/icon-rotate.png");', '');
+
+console.log(scriptElement.textContent);
+
 document.head.append(scriptElement);
 
 /** tests */

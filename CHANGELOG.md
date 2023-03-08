@@ -20,4 +20,4 @@
 - INIT version
 - implement landscape mode
 - remember scroll position
-- hide y axis scrollbar 
+- hide y axis scrollbar
