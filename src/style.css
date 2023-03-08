@@ -1,11 +1,13 @@
 .btn-rotate {
 	float: left;
-	height: 32px;
-	margin: 9px 12px 0 0;
-	width: 32px;
-	background-image: url('./icon-rotate.png');
+	height: 31px;
+	/*margin: 9px 12px 0 0;*/
+	width: 31px;
 	background-color: 'transparent';
-	/*display: inline-block;*/
+	background-size: cover;
+	background-repeat: no-repeat;
+	cursor: pointer;
+	color: #000 !important;
 	overflow: hidden;
 	text-indent: 100%;
 	vertical-align: top;

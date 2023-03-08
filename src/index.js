@@ -1,3 +1,10 @@
+const icon = chrome
+	// chrome
+	? chrome.runtime.getURL("/images/icon-rotate.png")
+	// firefox
+	// @ts-ignore
+	: browser.runtime.getURL("/images/icon-rotate.png");
+
 /**
  * adds button to toolbar, when episode is opened
  * 
@@ -5,12 +12,21 @@
  * addButton();
  */
 function addButton() {
-	const toolbar = document.querySelector('#_toolBarRightArea');
-	const button = document.createElement('button');
+	const toolbar = document.querySelector('#_toolBarRightArea > ul');
+	const li = document.createElement("li");
+	li.classList.add("relative");
+	const button = document.createElement('a');
 	button.classList.add('btn-rotate');
+	button.removeAttribute("href");
+	button.classList.add("NPI=a:addfav,g:en_en");
+	button.textContent = "rotate";
+	button.setAttribute("data-page-source", "ViewerTopRight");
 	button.id = 'btn-rotate';
+	button.style.setProperty("background-image", `url(${icon})`)
 	button.addEventListener('click', rotate);
-	toolbar.prepend(button);
+	console.log("works");
+	toolbar.prepend(li);
+	li.prepend(button);
 	return button;
 }
 
@@ -33,7 +49,7 @@ function rotate() {
 
 	if (viewer.classList.contains("viewer-rotate")) {
 		window.scrollTo(scrollPositionY, 120)
-		
+
 		document.body.addEventListener("wheel", wheelX, {
 			passive: false
 		})
