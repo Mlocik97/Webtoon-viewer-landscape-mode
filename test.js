@@ -52,10 +52,8 @@ const jsFile = fs.readFileSync("./src/index.js", {
 const scriptElement = document.createElement("script");
 scriptElement.textContent = jsFile
 
-// replace `runtime.getURL` with url
-.replace("icon = chrome", 'icon = "./images/icon-rotate.png"')
-.replace('? chrome.runtime.getURL("/images/icon-rotate.png")', '')
-.replace(': browser.runtime.getURL("/images/icon-rotate.png");', '');
+// replace chrome object
+.replace(/chrome/g, "{ runtime: { getURL: (s) => s } }")
 
 document.head.append(scriptElement);
 

@@ -1,9 +1,7 @@
-const icon = chrome
-	// chrome
-	? chrome.runtime.getURL("/images/icon-rotate.png")
-	// firefox
-	// @ts-ignore
-	: browser.runtime.getURL("/images/icon-rotate.png");
+// @ts-ignore
+const { runtime } = chrome ? chrome : /** @type {chrome} */ (browser);
+
+const icon = runtime.getURL("/images/icon-rotate.png")
 
 /**
  * adds button to toolbar, when episode is opened
