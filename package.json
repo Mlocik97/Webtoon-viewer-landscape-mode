@@ -1,6 +1,6 @@
 {
   "name": "webtoon-landscape-mode",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Extension, that allows you rotate viewer, so it's easy to read landscape webtoon episodes on desktop",
   "main": "src/index.js",
   "scripts": {
