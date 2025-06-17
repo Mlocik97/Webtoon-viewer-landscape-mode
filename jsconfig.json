@@ -4,7 +4,8 @@
 		"checkJs": true,
 		"module": "ES2022",
 		"lib": ["ES2022", "DOM", "DOM.Iterable"],
-		"moduleResolution": "node"
+		"moduleResolution": "node",
+		"typeRoots": ["./node_modules/@types"]
 	},
 	"include": ["./src/**/*.js"]
 }

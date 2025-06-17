@@ -6,12 +6,8 @@
 	"description": "Extension, that allows you rotate viewer, so it's easy to read landscape webtoon episodes on desktop",
 	"content_scripts": [
 		{
-			"js": [
-				"./index.js"
-			],
-			"css": [
-				"./style.css"
-			],
+			"js": ["./index.js"],
+			"css": ["./style.css"],
 			"matches": [
 				"https://webtoons.com/**/viewer*",
 				"https://*.webtoons.com/**/viewer*"
@@ -20,13 +16,8 @@
 	],
 	"web_accessible_resources": [
 		{
-			"resources": [
-				"images/*"
-			],
-			"matches": [
-				"https://webtoons.com/*",
-				"https://*.webtoons.com/*"
-			],
+			"resources": ["images/*"],
+			"matches": ["https://webtoons.com/*", "https://*.webtoons.com/*"],
 			"use_dynamic_url": true
 		}
 	],

@@ -1,12 +1,11 @@
 import { test } from 'uvu';
 import { JSDOM } from 'jsdom';
 import fs from 'fs';
-import fetch from 'node-fetch';
 import * as assert from 'uvu/assert';
 
 /** fetch HTML from webtoon episode viewer */
 const URL =
-	'https://www.webtoons.com/en/fantasy/soleil/s3-episode-128/viewer?title_no=1823&episode_no=128';
+	'https://www.webtoons.com/en/fantasy/soleil/s3-episode-128/viewer?title_no=1823&episode_no=1';
 const html = await fetch(URL).then((r) => r.text());
 
 /** create DOM */
