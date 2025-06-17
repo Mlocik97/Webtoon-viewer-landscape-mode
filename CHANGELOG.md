@@ -1,3 +1,13 @@
+## 0.3.0
+
+- updated dependencies
+- bug fixes
+- optimization
+
+## 0.2.2
+
+- small optimization
+
 ## 0.2.1
 
 - fix button's padding
