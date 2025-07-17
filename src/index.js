@@ -1,5 +1,4 @@
-// @ts-ignore
-const { runtime } = chrome ? chrome : /** @type {chrome} */ (browser);
+const { runtime } = chrome ? chrome : browser;
 
 const icon = runtime.getURL('/images/icon-rotate.png');
 
