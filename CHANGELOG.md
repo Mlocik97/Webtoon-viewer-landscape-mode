@@ -1,3 +1,8 @@
+## 0.4.0
+
+- implement missing unit tests
+- update types
+
 ## 0.3.0
 
 - updated dependencies
