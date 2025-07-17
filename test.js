@@ -33,6 +33,7 @@ installPolyfills({
 
 const noop = () => {};
 Object.defineProperty(window, 'scrollTo', { value: noop, writable: true });
+Object.defineProperty(window, 'scrollBy', { value: function({ left }) { this.scrollX = (this.scrollX || 0) + (left || 0); }, writable: true });
 
 /** inject CSS */
 const cssFile = fs.readFileSync("./src/style.css", {
@@ -85,17 +86,41 @@ test("vertical scrollbar is hidden in landscape", () => {
 	assert.is(overflow, "hidden");
 })
 
-test("episodde is visible", () => {
-	// TODO
-})
+test("episode is visible", () => {
+    button.click(); // enter landscape mode
+    const viewer = document.querySelector('#_viewerBox');
+    // Check if viewer is still visible and not clipped
+    const isVisible = window.getComputedStyle(viewer).getPropertyValue("visibility") !== "hidden";
+    const isNotClipped = window.getComputedStyle(viewer).getPropertyValue("overflow") !== "hidden";
+    assert.is(isVisible, true);
+    assert.is(isNotClipped, true);
+});
 
-test("scroll to Top is hiddem", () => {
-	// TODO
-})
+test("scroll to Top is hidden", () => {
+    button.click(); // ensure landscape mode
+    const toTop = document.querySelector('#_topBtn');
+    const hasHideClass = toTop.classList.contains('viewer-rotate-hide-toTop');
+    assert.is(hasHideClass, true);
+    button.click(); // restore to normal mode
+    const isVisibleAgain = !toTop.classList.contains('viewer-rotate-hide-toTop');
+    assert.is(isVisibleAgain, true);
+});
 
 test("wheel in landscape scroll by x axis", () => {
-	// TODO
-})
+    button.click(); // enter landscape mode
+    const initialScrollX = window.scrollX;
+    
+    // Simulate wheel event
+    const wheelEvent = new dom.window.WheelEvent('wheel', {
+        deltaY: 100,
+        cancelable: true
+    });
+    document.body.dispatchEvent(wheelEvent);
+    
+    // Check if scrollX changed
+    const scrolled = window.scrollX > initialScrollX;
+    assert.is(scrolled, true);
+});
 
 test.run();
 
