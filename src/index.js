@@ -1,4 +1,4 @@
-const { runtime } = chrome ? chrome : browser;
+const { runtime } = chrome ?? browser;
 
 const icon = runtime.getURL('/images/icon-rotate.png');
 
